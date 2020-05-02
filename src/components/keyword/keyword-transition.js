@@ -1,5 +1,8 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
+import './keyword-transition.css'
 
+let keyWord = "";
 class Keyword extends React.Component{
     handleKeyDown(e){
         if(e.key === 'Enter'){
@@ -12,7 +15,7 @@ class Keyword extends React.Component{
 
             <form className = "container-keyword">
 
-                <label for ="keyword" className = 'keyword' id = "keyword-label">Enter the keyword:</label>
+                <label for ="keyword" className = 'keyword' id = "keyword-label">Enter the keyword (Artist,Album, etc):</label>
                 <input type = "text"className = 'keyword' id = "keyword-search" name = "keyword" onKeyPress={this.handleKeyDown}></input>
                 
             </form>
@@ -21,8 +24,9 @@ class Keyword extends React.Component{
 }
 
 function extractSearch(){
-    const search = document.getElementById('keyword-search').value;
-    //document.getElementById("TEST").innerHTML = search;
+    const searchLine = document.getElementById('keyword-search');
+    keyWord = searchLine.value;
+    document.getElementsByClassName("container-keyword")[0].style.display = "none";
 }
 
-export default Keyword;
+export {Keyword,keyWord};

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import './home.css';
-import Keyword from '../keyword/keyword';
+import {Keyword} from '../keyword/keyword-transition';
 import Genre from '../genre/genre';
 
 

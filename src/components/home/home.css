@@ -47,38 +47,5 @@ h2{
     border-radius: 0.15em;
 }
 
-.container-keyword{
-    height: 800px;
-    
-    background-color: #04c3c9;
-    color : white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
 
-}
-
-.keyword{
-    font-size : 3em;
-    align-items: center;
-    margin: 10px;
-}
-#keyword-search{
-
-    outline: 0;
-    background-color: #04c3c9;
-    color: white;
-    border-top: none;
-    border-left: none;
-    border-right:none;
-    border-color: white;
-}
-
-/* #keyword-label {
-    font-size: 1.75em;
-    display: flex;
-    color: white;
-    flex-direction: row;
-    justify-content: center;
-} */
