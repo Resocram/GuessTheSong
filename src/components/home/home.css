@@ -1,0 +1,48 @@
+@font-face{
+    src: url(fonts/Raleway-Regular.ttf);
+    font-family: Raleway;
+}
+
+@font-face{
+    src: url(fonts/Raleway-SemiBold.ttf);
+    font-family: RalewaySB;
+}
+
+*{
+    font-family: "RalewaySB"
+}
+
+html {
+    background-color : #04c3c9
+  }
+  
+h1{
+    color: white;
+    text-align: center;
+    font-size: 3em;
+  }
+h2{
+    color: white;
+    text-align: center;
+    font-size: 2em;
+  }
+
+.container {
+    border:10px;
+    background-color: #04c3c9;
+    color : white;
+
+
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.button {
+    color: #04c3c9;
+    background-color: white;
+    font-size: 1.75em;
+    border : none;
+    border-radius: 0.15em;
+}
