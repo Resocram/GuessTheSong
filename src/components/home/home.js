@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import './home.css';
+import Keyword from '../keyword/keyword';
+import Genre from '../genre/genre';
 
 
 const title = "Can you guess the song?"
@@ -18,8 +21,8 @@ class HomeScreen extends React.Component{
         <br />
         <br />
         <div className = 'container home'>
-            <button className = 'button home' onClick = {() => fade('keyword')}>{categories[0]}</button>
-            <button className = 'button home' onClick = {() => fade('genre')}>{categories[1]}</button>
+            <button className = 'button home' onClick = {() => fade('Keyword')}>{categories[0]}</button>
+            <button className = 'button home' onClick = {() => fade('Genre')}>{categories[1]}</button>
         </div>
     </div>
     )
@@ -28,6 +31,12 @@ class HomeScreen extends React.Component{
 
 function fade(name){
     Array.from(document.getElementsByClassName('home')).forEach((element)=>{element.style.display = 'none'});
+    if(name === 'Keyword'){
+      ReactDOM.render(<Keyword />,document.getElementById('root'))
+    }
+    else{
+      ReactDOM.render(<Genre />,document.getElementById('root'))
+    }
 }
 
 
