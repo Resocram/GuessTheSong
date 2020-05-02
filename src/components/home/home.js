@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import './home.css';
-import {Keyword} from '../keyword/keyword-transition';
+import {KeywordTransition} from '../keyword/transition/keyword-transition';
 import Genre from '../genre/genre';
 
 
@@ -30,9 +30,8 @@ class HomeScreen extends React.Component{
 }
 
 function fade(name){
-    Array.from(document.getElementsByClassName('home')).forEach((element)=>{element.style.display = 'none'});
     if(name === 'Keyword'){
-      ReactDOM.render(<Keyword />,document.getElementById('root'))
+      ReactDOM.render(<KeywordTransition />,document.getElementById('root'))
     }
     else{
       ReactDOM.render(<Genre />,document.getElementById('root'))

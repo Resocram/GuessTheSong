@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './keyword-transition.css'
-
+import {KeywordFetch} from '../fetch/keyword-fetch'
 let keyWord = "";
-class Keyword extends React.Component{
+class KeywordTransition extends React.Component{
     handleKeyDown(e){
         if(e.key === 'Enter'){
             e.preventDefault();
@@ -15,8 +15,8 @@ class Keyword extends React.Component{
 
             <form className = "container-keyword">
 
-                <label for ="keyword" className = 'keyword' id = "keyword-label">Enter the keyword (Artist,Album, etc):</label>
-                <input type = "text"className = 'keyword' id = "keyword-search" name = "keyword" onKeyPress={this.handleKeyDown}></input>
+                <label className = 'keyword fade-in' id = "keyword-label">Enter the keyword (Artist,Album, etc):</label>
+                <input type = "text"className = 'keyword fade-in' id = "keyword-search" name = "keyword-search" onKeyPress={this.handleKeyDown}></input>
                 
             </form>
         )
@@ -27,6 +27,7 @@ function extractSearch(){
     const searchLine = document.getElementById('keyword-search');
     keyWord = searchLine.value;
     document.getElementsByClassName("container-keyword")[0].style.display = "none";
+    ReactDOM.render(<KeywordFetch />,document.getElementById('root'))
 }
 
-export {Keyword,keyWord};
+export {KeywordTransition,keyWord};
