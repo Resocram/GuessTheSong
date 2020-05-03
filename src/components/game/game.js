@@ -20,7 +20,7 @@ class Game extends React.Component{
         currAudio.play();
         return(
             <div>
-                <h1 id = "response"></h1>
+                <h1 id = "response"> </h1>
                 <form className = "container-guess">
                     <label className = 'guess fade-in' id = "guess-label">Guess:</label>
                     <input type = "text"className = 'guess fade-in' id = "guess" name = "guess" onKeyPress={this.handleKeyDown}></input> 
@@ -42,11 +42,23 @@ function checkGuess(){
         score++;
         currentRound++;
         document.getElementById('score').innerHTML = `Your current score ${score} out of ${currentRound}`
-        currAudio.pause();
-        currAudio = new Audio(trackMP3[currentRound]);
-        currAudio.play();
+        playCorrect();
+        
+
+
     }
 }
+
+function playCorrect(){
+    currAudio.pause();
+    currAudio = new Audio("/sounds/correct.mp3")
+    currAudio.play();
+    currAudio.addEventListener("ended", () => {
+        currAudio = new Audio(trackMP3[currentRound]);
+        currAudio.play();
+    })
+}
+
 
 //NEED TO FORMAT ANSWER
 function formatAnswer(){
