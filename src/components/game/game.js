@@ -5,8 +5,21 @@ import './game.css'
 let score = 0;
 let currentRound = 0;
 let currAudio;
+const correctAudio = new Audio("http://docs.google.com/uc?export=open&id=1zNSi5xLPnsWpvaGgTYZG2-t1nrf9_wTu")
+const wrongAudio = new Audio("http://docs.google.com/uc?export=open&id=1HayElluSvoRbg7V-M94UbnKN3giIgv19")
 
+correctAudio.addEventListener("ended", () => {
+    currAudio = new Audio(trackMP3[currentRound]);
+    currAudio.play();
+    document.getElementById('response').innerHTML = "";
+})
 
+wrongAudio.addEventListener("ended", () => {
+    currAudio = new Audio(trackMP3[currentRound]);
+    currAudio.play();
+    document.getElementById('response').innerHTML = "";
+    document.getElementById('score').innerHTML = `Your current score ${score} out of ${currentRound}`
+})
 class Game extends React.Component{
 
     handleKeyDown(e){
@@ -18,6 +31,8 @@ class Game extends React.Component{
     render(){
         currAudio = new Audio(trackMP3[currentRound]);
         currAudio.play();
+        currAudio.addEventListener("ended", noTime);
+        console.log(String(currAudio.duration));
         return(
             <div>
                 <h1 id = "response"> </h1>
@@ -35,6 +50,13 @@ class Game extends React.Component{
     
 }
 
+function noTime(){
+    document.getElementById('response').innerHTML = "You ran out of time!"
+    currAudio.pause();
+    currentRound++;
+    wrongAudio.play();
+}
+
 function checkGuess(){
     console.log(String(trackTitle[currentRound]))
 
@@ -42,23 +64,13 @@ function checkGuess(){
         score++;
         currentRound++;
         document.getElementById('score').innerHTML = `Your current score ${score} out of ${currentRound}`
-        playCorrect();
-        
-
-
     }
 }
 
 function playCorrect(){
     currAudio.pause();
-    currAudio = new Audio("/sounds/correct.mp3")
-    currAudio.play();
-    currAudio.addEventListener("ended", () => {
-        currAudio = new Audio(trackMP3[currentRound]);
-        currAudio.play();
-    })
+    correctAudio.play()    
 }
-
 
 //NEED TO FORMAT ANSWER
 function formatAnswer(){
@@ -66,12 +78,14 @@ function formatAnswer(){
     const answer = String(trackTitle[currentRound]).toLowerCase();
     if(guess === answer){
         document.getElementById('response').innerHTML = "Correct!"
-        //PLAY CHECKMARK SOUND?
+        playCorrect();
         return true;
     }
+
     document.getElementById('response').innerHTML = "Try again"
     return false;
 
 }
+
 
 export {Game}
