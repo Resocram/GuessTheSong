@@ -8,8 +8,8 @@ let currentRound = 0;
 let timeLeft = 29;
 let currAudio;
 let timerId;
-const correctAudio = new Audio("https://audio.clyp.it/wmf2dkmm.mp3?Expires=1588561639&Signature=YE7jnYEJqib9PsD-YGVLyAgrEueaM6TgpVKpb5y2uyWANNH6OQWquDdMQaSQ3ylvqfnF6WSgDXj8155dGBE1gXF5jVgGTK4zIqRtemx2Nz8EscvXXQuSVEKOT3xlDS8iyO31f4z7u45EA3gVfSjTQpTDpn59PCc2pzt7fd5Eln8_&Key-Pair-Id=APKAJ4AMQB3XYIRCZ5PA")
-const wrongAudio = new Audio("https://audio.clyp.it/xyy15ze3.mp3?Expires=1588561695&Signature=k9kgJeki6hwj-60N8lS~yxfOedYWcQVzsLGhKn0KTIb96RGHLkIE~hLxc06i13e34V08BnGiwJuYKNQi4mywsWxSwq7szjwfYkUB9c5BoJWDubgyi92bnkcSTQawphKr3QukLzhaJnbnmVDR1SO0U7wMQLmX-~N3HTIdvMw7AyE_&Key-Pair-Id=APKAJ4AMQB3XYIRCZ5PA")
+const correctAudio = new Audio("https://docs.google.com/uc?export=open&id=15rJuduvGTmvr610seb-uqonbaBhyI8Pu")
+const wrongAudio = new Audio("https://docs.google.com/uc?export=open&id=1aSTitJA57XOqzB1TrtKQZyBIdDLZoT3x")
 
 correctAudio.addEventListener("ended", () => {
     nextRound();
@@ -46,6 +46,18 @@ class Game extends React.Component{
                
                 <h3 id = "score">Your current score: {score} out of {currentRound}</h3>
                 <p id = 'timer'>Timer:</p>
+                <ol id = "list">
+                    <li id = "l1">{trackTitle[0]}</li>
+                    <li id = "l2">{trackTitle[1]}</li>
+                    <li id = "l3">{trackTitle[2]}</li>
+                    <li id = "l4">{trackTitle[3]}</li>
+                    <li id = "l5">{trackTitle[4]}</li>
+                    <li id = "l6">{trackTitle[5]}</li>
+                    <li id = "l7">{trackTitle[6]}</li>
+                    <li id = "l8">{trackTitle[7]}</li>
+                    <li id = "l9">{trackTitle[8]}</li>
+                    <li id = "l10">{trackTitle[9]}</li>
+                </ol>
             </div>
             
         )
@@ -59,7 +71,8 @@ function nextRound(){
         ReactDOM.render(<Finished />, document.getElementById('root'));
     }else{
     stopTimer();
-    
+    document.getElementById(String("l" + currentRound)).style.visibility = 'visible'
+    document.getElementById('guess').value = "";
     currAudio = new Audio(trackMP3[currentRound]);
     currAudio.play();
     timeLeft = 29;
@@ -104,6 +117,7 @@ function noTime(){
     stopTimer();
     document.getElementById('skip').style.visibility = "hidden";
     document.getElementById('response').style.visibility = "visible";
+    document.getElementById('response').style.color = "#f05b56";
     document.getElementById('response').innerHTML = "You ran out of time!"
     currAudio.pause();
     currentRound++;
@@ -112,11 +126,15 @@ function noTime(){
 }
 
 function playCorrect(){
+    stopTimer();
+    document.getElementById('skip').style.visibility = "hidden";
+    document.getElementById('response').style.visibility = "visible";
+    document.getElementById('response').style.color = "#a6eb7a";
+    document.getElementById('response').innerHTML = "Correct!"
     currAudio.pause();
     score++;
     currentRound++;
     document.getElementById('score').innerHTML = `Your current score: ${score} out of ${currentRound}`
-
     correctAudio.play()    
 }
 
@@ -125,18 +143,16 @@ function checkGuess(){
     const guess = String(document.getElementById('guess').value).toLowerCase();
     const answer = String(trackTitle[currentRound]).toLowerCase();
     if(guess === answer){
-        document.getElementById('skip').style.visibility = "hidden";
-        document.getElementById('response').style.visibility = "visible";
-        document.getElementById('response').innerHTML = "Correct!"
-        stopTimer();
+
         playCorrect();
         return true;
     }
     document.getElementById('response').style.visibility = "visible"; 
+    document.getElementById('response').style.color = "white";
     document.getElementById('response').innerHTML = "Try again"
     return false;
 
 }
 
 
-export {Game}
+export {score, rounds, Game}

@@ -12,7 +12,7 @@ const categories = ["Keyword", "Genre"]
 class HomeScreen extends React.Component{
   render(){
     return (
-      <div> 
+      <div className = "fade-in"> 
         <h1 className = "home">{title}</h1>
         <br />
         <h2 className = "home">{select}</h2>
@@ -21,15 +21,15 @@ class HomeScreen extends React.Component{
         <br />
         <br />
         <div className = 'container home'>
-            <button className = 'button home' onClick = {() => fade('Keyword')}>{categories[0]}</button>
-            <button className = 'button home' onClick = {() => fade('Genre')}>{categories[1]}</button>
+            <button className = 'button home' onClick = {() => button('Keyword')}>{categories[0]}</button>
+            <button className = 'button home' onClick = {() => button('Genre')}>{categories[1]}</button>
         </div>
     </div>
     )
   }
 }
 
-function fade(name){
+function button(name){
     if(name === 'Keyword'){
       ReactDOM.render(<KeywordTransition />,document.getElementById('root'))
     }
@@ -39,5 +39,5 @@ function fade(name){
 }
 
 
-export default HomeScreen
+export {HomeScreen}
 
