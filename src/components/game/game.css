@@ -1,5 +1,5 @@
 .container-guess{
-    height: 800px;
+    height: inherit;
     background-color: #04c3c9;
     color : white;
     display: flex;
@@ -23,7 +23,6 @@
     border-left: none;
     border-right:none;
     border-color: white;
-    width:40%
 }
 
 #score{
@@ -34,7 +33,22 @@
 }
 
 #response{
-    position: absolute;
     top: -10px;
+    left: 45%;
     right: 45%;
+    text-align: center;
+    margin-bottom: 10%;
+    visibility: hidden;
+}
+
+#timer{
+    font-size: 3.5em;
+    margin-top: 15%;
+    visibility: hidden;
+    color: white;
+    text-align:center;
+}
+
+#skip{
+    visibility: hidden;
 }

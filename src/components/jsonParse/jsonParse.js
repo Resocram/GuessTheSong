@@ -1,5 +1,5 @@
 
-
+//TODO: Instead of keeping track of indices, just check for duplicate song title
 let trackTitle = [];
 let chosenIndices = [];
 let trackMP3  = [];
@@ -20,6 +20,7 @@ function generateRandomIndex(length){
     while(true){
         randomNum =  Math.floor(Math.random()*length)
         if(!chosenIndices.includes(randomNum)){
+            
             chosenIndices.push(randomNum);
             break;
         }
@@ -28,4 +29,4 @@ function generateRandomIndex(length){
 }
 
 
-export {trackTitle, trackMP3, parseResponse}
+export {trackTitle, trackMP3, parseResponse, rounds}
