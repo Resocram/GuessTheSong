@@ -175,8 +175,8 @@ function checkGuess(){
     const answerArray = answerNoBrackets.match(regexWord)
     const finalGuess = guess.trim();
     const finalAnswer = answerArray.join(" ");
-    console.log(finalAnswer);
-    console.log(answerArray);
+    //console.log(finalAnswer);
+    //console.log(answerArray);
     if(finalGuess === finalAnswer){
 
         playCorrect();
@@ -184,7 +184,7 @@ function checkGuess(){
     }else{
         
         const guessSplit = guess.split(' ');
-        console.log(guessSplit)
+        //console.log(guessSplit)
         let count = 0;
         answerArray.forEach(element => {
             if(guessSplit.includes(element))
