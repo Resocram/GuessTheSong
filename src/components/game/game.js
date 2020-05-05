@@ -187,7 +187,7 @@ function checkGuess(){
         console.log(guessSplit)
         let count = 0;
         answerArray.forEach(element => {
-            if(guessSplit.contains(element))
+            if(guessSplit.includes(element))
                 count++;
         });
         if(count !==0){
