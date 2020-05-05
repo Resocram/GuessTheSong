@@ -92,10 +92,12 @@ class Game extends React.Component{
 }
 
 function nextRound(){
+
+    stopTimer();
     if(currentRound  === numRounds){
         ReactDOM.render(<Finished />, document.getElementById('root'));
     }else{
-    stopTimer();
+    
     document.getElementById(String("l" + currentRound)).style.visibility = 'visible'
     document.getElementById('guess').value = "";
     currAudio = new Audio(trackMP3[currentRound]);
@@ -167,30 +169,42 @@ function playCorrect(){
 function checkGuess(){
     const guess = String(document.getElementById('guess').value).toLowerCase();
     const answer = String(trackTitle[currentRound]).toLowerCase();
-    const regexWord = /[\w]+/g;
+    const regexWord = /[\w']+/g;
     const regexBrackets = /\(.+\)/g;
     const answerNoBrackets = answer.replace(regexBrackets, "");
     const answerArray = answerNoBrackets.match(regexWord)
     const finalGuess = guess.trim();
     const finalAnswer = answerArray.join(" ");
+    console.log(finalAnswer);
+    console.log(answerArray);
     if(finalGuess === finalAnswer){
 
         playCorrect();
         return true;
-    }
-    else if(answerArray.includes(finalGuess)){
-        document.getElementById('response').style.visibility = "visible"; 
-        document.getElementById('response').style.color = "white";
-        document.getElementById('response').innerHTML = "You're close!"
-    }
-    else{
-    document.getElementById('response').style.visibility = "visible"; 
-    document.getElementById('response').style.color = "white";
-    document.getElementById('response').innerHTML = "Try again"
-    }
+    }else{
+        
+        const guessSplit = guess.split();
+        console.log(guessSplit)
+        let count = 0;
+        answerArray.forEach(element => {
+            if(guessSplit.contains(element))
+                count++;
+        });
+        if(count !==0){
+            document.getElementById('response').style.visibility = "visible"; 
+            document.getElementById('response').style.color = "white";
+            document.getElementById('response').innerHTML = `You got ${count} out of ${answerArray.length} words`
+        }
+        else{
+            document.getElementById('response').style.visibility = "visible"; 
+            document.getElementById('response').style.color = "white";
+            document.getElementById('response').innerHTML = "Try again";
+        }
     return false;
+    
+    }
 
 }
 
 
-export {score, Game, trackTitle}
+export {score, Game, trackTitle, trackArtist}
