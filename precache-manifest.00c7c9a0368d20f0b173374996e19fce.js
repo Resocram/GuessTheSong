@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ff5fb02661804f8e45667b0b7647c74",
+    "revision": "2030c6f180cc65cbfadb452723c7ce15",
     "url": "/GuessTheSong/index.html"
   },
   {
-    "revision": "2d13a352415cd2d1ad48",
+    "revision": "f729a711edd6bf5b22cd",
     "url": "/GuessTheSong/static/css/main.0f176723.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/GuessTheSong/static/js/2.bfc8628e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2d13a352415cd2d1ad48",
-    "url": "/GuessTheSong/static/js/main.b90333c8.chunk.js"
+    "revision": "f729a711edd6bf5b22cd",
+    "url": "/GuessTheSong/static/js/main.7c2827f1.chunk.js"
   },
   {
     "revision": "b9c55273a23904469005",
