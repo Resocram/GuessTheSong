@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {keyWord} from '../transition/keyword-transition'
-import {parseResponse} from '../../jsonParse/jsonParse'
+import {keywordDeezerParse, invalid} from '../keywordDeezerParse/keywordDeezerParse'
 import {Game} from '../../game/game'
+import {HomeScreen} from '../../home/home'
 const deezerURL  = "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 const queryParams = "/search?q="
 
@@ -18,8 +19,12 @@ class KeywordFetch extends React.Component{
             let jsonResponse = await response.json();
             this.setState({data: jsonResponse})
         }
-        parseResponse(this.state)
-        ReactDOM.render(<Game />,document.getElementById('root'))
+        keywordDeezerParse(this.state)
+        if(invalid){
+            ReactDOM.render(<HomeScreen />, document.getElementById('root'))
+        }else{
+            ReactDOM.render(<Game />,document.getElementById('root'))
+        }
     }
 
 

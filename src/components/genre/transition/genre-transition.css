@@ -1,0 +1,18 @@
+.genre-photo{
+  height: 250px;
+  width: 250px;
+  margin: 3%;
+  border-radius: 30px;
+}
+
+#container-photo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.genre-caption{
+    color:white;
+    margin-left:3%;
+    text-align: center;
+}

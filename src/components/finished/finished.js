@@ -2,21 +2,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {HomeScreen} from '../home/home'
-import {trackTitle} from '../jsonParse/jsonParse'
-import {score, rounds} from '../game/game'
+import {trackTitle} from '../game/game'
+import {score} from '../game/game'
+import {numRounds} from '../keyword/keywordDeezerParse/keywordDeezerParse'
 import './finished.css'
 
-const win = new Audio("https://docs.google.com/uc?export=open&id=1sZvydY3UXVME4ioVjjnxUS9Py7v7UFqt")
+const win = new Audio("https://docs.google.com/uc?export=open&id=1Jp6OjXnp-iFBCwhCSLVkC94NYdsXoJ8A")
 
-const lose = new Audio("https://docs.google.com/uc?export=open&id=10NoGeIwqtvdY6U7cV3s6TZ6I4v_F0CUS")
+const lose = new Audio("https://docs.google.com/uc?export=open&id=1A5dr798XXXLsMV_Lw0LtrjtHvQk9ooF9")
 
 lose.addEventListener("ended", () => {
     ReactDOM.render(<HomeScreen />, document.getElementById('root'))
-})
 
+})
 
 win.addEventListener("ended", () => {
     ReactDOM.render(<HomeScreen />, document.getElementById('root'))
+
 })
 
 
@@ -24,13 +26,13 @@ win.addEventListener("ended", () => {
 class Finished extends React.Component{
     render(){
         let message;
-        if(score/rounds >= 0.5){
-            message = <h1>Congratulations! You scored {score} out of {rounds}</h1>
+        if(score/numRounds >= 0.5){
+            message = <h1>Congratulations! You scored {score} out of {numRounds}</h1>
             win.play();
         }
         else{ 
             lose.play();
-            message = <h1>You only scored {score} out of {rounds}. Better luck next time!</h1>
+            message = <h1>You only scored {score} out of {numRounds}. Better luck next time!</h1>
         }
         return (
             <div>
@@ -54,4 +56,4 @@ class Finished extends React.Component{
     }
 }
 
-export {Finished};
+export {Finished}

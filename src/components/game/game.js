@@ -1,15 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {trackTitle, trackMP3, rounds} from '../jsonParse/jsonParse'
+import {trackTitleK, trackMP3K, numRounds} from '../keyword/keywordDeezerParse/keywordDeezerParse'
+import {trackTitleG} from '../genre/genreParse/genreLastFMParse'
+import {trackMP3G} from '../genre/fetch/genre-fetch2'
 import './game.css'
 import {Finished} from '../finished/finished'
-let score = 0;
-let currentRound = 0;
-let timeLeft = 29;
+import {clicked} from '../home/home'
+let score;
+let currentRound;
+let timeLeft;
 let currAudio;
 let timerId;
-const correctAudio = new Audio("https://docs.google.com/uc?export=open&id=15rJuduvGTmvr610seb-uqonbaBhyI8Pu")
-const wrongAudio = new Audio("https://docs.google.com/uc?export=open&id=1aSTitJA57XOqzB1TrtKQZyBIdDLZoT3x")
+let trackTitle;
+let trackMP3;
+
+
+
+const correctAudio = new Audio("https://docs.google.com/uc?export=open&id=1MjJaltSM_aVlrczrr5JSPb30ts8DSkPr")
+const wrongAudio = new Audio("https://docs.google.com/uc?export=open&id=1jjCbskw4I-9v0cnxcYZ5pXe0bmdaIwo6")
 
 correctAudio.addEventListener("ended", () => {
     nextRound();
@@ -29,12 +37,26 @@ class Game extends React.Component{
         }
     }
     componentDidMount(){
+
         currAudio = new Audio(trackMP3[currentRound]);
         currAudio.play();
         startTimer();
         currAudio.addEventListener("ended", noTime);        
     }
     render(){      
+        if(clicked === 'Keyword'){
+            trackTitle = trackTitleK;
+            trackMP3 = trackMP3K;
+        }
+        else{
+            trackTitle = trackTitleG;
+            trackMP3 = trackMP3G;
+        }
+        console.log(trackTitle);
+        console.log(trackMP3)
+        score = 0;
+        currentRound = 0;
+        timeLeft = 29;
         return(
             <div id = 'parent'>
                 <h1 id = "response">Blank</h1>
@@ -67,7 +89,7 @@ class Game extends React.Component{
 }
 
 function nextRound(){
-    if(currentRound  === rounds){
+    if(currentRound  === numRounds){
         ReactDOM.render(<Finished />, document.getElementById('root'));
     }else{
     stopTimer();
@@ -155,4 +177,4 @@ function checkGuess(){
 }
 
 
-export {score, rounds, Game}
+export {score, Game, trackTitle}

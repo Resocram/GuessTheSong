@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import './home.css';
 import {KeywordTransition} from '../keyword/transition/keyword-transition';
-import Genre from '../genre/genre';
+import {GenreTransition} from '../genre/transition/genre-transition'
 
 
+let clicked;
 const title = "Can you guess the song?"
 const select = "Choose a category"
 const categories = ["Keyword", "Genre"]
@@ -31,13 +32,15 @@ class HomeScreen extends React.Component{
 
 function button(name){
     if(name === 'Keyword'){
+      clicked = 'Keyword'
       ReactDOM.render(<KeywordTransition />,document.getElementById('root'))
     }
     else{
-      ReactDOM.render(<Genre />,document.getElementById('root'))
+      clicked = 'Genre'
+      ReactDOM.render(<GenreTransition />,document.getElementById('root'))
     }
 }
 
 
-export {HomeScreen}
+export {clicked, HomeScreen}
 
