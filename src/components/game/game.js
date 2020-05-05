@@ -183,7 +183,7 @@ function checkGuess(){
         return true;
     }else{
         
-        const guessSplit = guess.split();
+        const guessSplit = guess.split(' ');
         console.log(guessSplit)
         let count = 0;
         answerArray.forEach(element => {
