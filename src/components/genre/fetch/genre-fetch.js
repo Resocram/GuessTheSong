@@ -5,7 +5,7 @@ import {genreLastFMParse, invalid} from '../genreParse/genreLastFMParse'
 import {GenreFetch2} from './genre-fetch2'
 import {HomeScreen} from '../../home/home'
 
-const lastFMURL  = "http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag="
+const lastFMURL  = "https://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag="
 const queryParams = "&api_key="
 const APIKEY = "2da73dbc292983c9669e3faacd32e6da"
 const format = "&format=json"
