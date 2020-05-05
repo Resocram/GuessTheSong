@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/GuessTheSong/static/css/main.0f176723.chunk.css",
-    "main.js": "/GuessTheSong/static/js/main.c9079b33.chunk.js",
-    "main.js.map": "/GuessTheSong/static/js/main.c9079b33.chunk.js.map",
+    "main.js": "/GuessTheSong/static/js/main.10ae810c.chunk.js",
+    "main.js.map": "/GuessTheSong/static/js/main.10ae810c.chunk.js.map",
     "runtime-main.js": "/GuessTheSong/static/js/runtime-main.eaea4b10.js",
     "runtime-main.js.map": "/GuessTheSong/static/js/runtime-main.eaea4b10.js.map",
     "static/js/2.bfc8628e.chunk.js": "/GuessTheSong/static/js/2.bfc8628e.chunk.js",
     "static/js/2.bfc8628e.chunk.js.map": "/GuessTheSong/static/js/2.bfc8628e.chunk.js.map",
     "index.html": "/GuessTheSong/index.html",
-    "precache-manifest.1a338aa924ce8be4a52b86883fce7b8d.js": "/GuessTheSong/precache-manifest.1a338aa924ce8be4a52b86883fce7b8d.js",
+    "precache-manifest.d431e551660099177ef549d180e61c9c.js": "/GuessTheSong/precache-manifest.d431e551660099177ef549d180e61c9c.js",
     "service-worker.js": "/GuessTheSong/service-worker.js",
     "static/css/main.0f176723.chunk.css.map": "/GuessTheSong/static/css/main.0f176723.chunk.css.map",
     "static/js/2.bfc8628e.chunk.js.LICENSE.txt": "/GuessTheSong/static/js/2.bfc8628e.chunk.js.LICENSE.txt",
@@ -32,6 +32,6 @@
     "static/js/runtime-main.eaea4b10.js",
     "static/js/2.bfc8628e.chunk.js",
     "static/css/main.0f176723.chunk.css",
-    "static/js/main.c9079b33.chunk.js"
+    "static/js/main.10ae810c.chunk.js"
   ]
 }
