@@ -7,9 +7,9 @@ import {score} from '../game/game'
 import {numRounds} from '../keyword/keywordDeezerParse/keywordDeezerParse'
 import './finished.css'
 
-const win = new Audio("https://docs.google.com/uc?export=open&id=1Jp6OjXnp-iFBCwhCSLVkC94NYdsXoJ8A")
+const win = new Audio("../game/sounds/correct.mp3")
 
-const lose = new Audio("https://docs.google.com/uc?export=open&id=1A5dr798XXXLsMV_Lw0LtrjtHvQk9ooF9")
+const lose = new Audio("../game/sounds/wrong.mp3")
 
 lose.addEventListener("ended", () => {
     ReactDOM.render(<HomeScreen />, document.getElementById('root'))

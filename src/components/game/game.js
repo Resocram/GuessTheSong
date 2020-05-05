@@ -16,7 +16,7 @@ let trackMP3;
 
 
 
-const correctAudio = new Audio("https://docs.google.com/uc?export=open&id=1MjJaltSM_aVlrczrr5JSPb30ts8DSkPr")
+const correctAudio = new Audio("correct.mp3")
 const wrongAudio = new Audio("https://docs.google.com/uc?export=open&id=1jjCbskw4I-9v0cnxcYZ5pXe0bmdaIwo6")
 
 correctAudio.addEventListener("ended", () => {
