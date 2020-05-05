@@ -169,7 +169,7 @@ function playCorrect(){
 function checkGuess(){
     const guess = String(document.getElementById('guess').value).toLowerCase();
     const answer = String(trackTitle[currentRound]).toLowerCase();
-    const regexWord = /[\w']+/g;
+    const regexWord = /[\w'.]+/g;
     const regexBrackets = /\(.+\)/g;
     const answerNoBrackets = answer.replace(regexBrackets, "");
     const answerArray = answerNoBrackets.match(regexWord)
