@@ -4,7 +4,7 @@ import {Game} from '../../game/game'
 import {trackTitleG, trackArtistG} from '../genreParse/genreLastFMParse'
 import {numRounds} from '../genreParse/genreLastFMParse'
 
-const deezerURL  = "https://api.deezer.com"
+const deezerURL  = "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 const queryParams = "/search?q="
 
 let trackMP3G;

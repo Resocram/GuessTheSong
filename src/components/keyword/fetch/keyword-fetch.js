@@ -4,7 +4,7 @@ import {keyWord} from '../transition/keyword-transition'
 import {keywordDeezerParse, invalid} from '../keywordDeezerParse/keywordDeezerParse'
 import {Game} from '../../game/game'
 import {HomeScreen} from '../../home/home'
-const deezerURL  = "https://api.deezer.com"
+const deezerURL  = "https://cors-anywhere.herokuapp.com/https://api.deezer.com"
 const queryParams = "/search?q="
 
 class KeywordFetch extends React.Component{
