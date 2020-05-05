@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/GuessTheSong/precache-manifest.4d644929231abd3c42a38bca3fa3605b.js"
+  "/GuessTheSong/precache-manifest.d7d920c37bf7fabcd7fa1eb76e31eeff.js"
 );
 
 self.addEventListener('message', (event) => {
