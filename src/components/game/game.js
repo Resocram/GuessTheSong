@@ -55,8 +55,8 @@ class Game extends React.Component{
             trackMP3 = trackMP3G;
             trackArtist = trackArtistG;
         }
-        console.log(trackTitle);
-        console.log(trackMP3)
+        // console.log(trackTitle);
+        // console.log(trackMP3)
         score = 0;
         currentRound = 0;
         timeLeft = 29;
