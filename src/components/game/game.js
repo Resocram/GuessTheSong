@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {trackTitleK, trackMP3K, numRounds} from '../keyword/keywordDeezerParse/keywordDeezerParse'
-import {trackTitleG} from '../genre/genreParse/genreLastFMParse'
+import {trackTitleK, trackMP3K, trackArtistK, numRounds} from '../keyword/keywordDeezerParse/keywordDeezerParse'
+import {trackTitleG, trackArtistG} from '../genre/genreParse/genreLastFMParse'
 import {trackMP3G} from '../genre/fetch/genre-fetch2'
 import './game.css'
 import {Finished} from '../finished/finished'
@@ -13,11 +13,12 @@ let currAudio;
 let timerId;
 let trackTitle;
 let trackMP3;
+let trackArtist;
 
 
 
-const correctAudio = new Audio("correct.mp3")
-const wrongAudio = new Audio("https://docs.google.com/uc?export=open&id=1jjCbskw4I-9v0cnxcYZ5pXe0bmdaIwo6")
+const correctAudio = new Audio(require("./sounds/correct.mp3"))
+const wrongAudio = new Audio(require("./sounds/wrong.mp3"))
 
 correctAudio.addEventListener("ended", () => {
     nextRound();
@@ -47,10 +48,12 @@ class Game extends React.Component{
         if(clicked === 'Keyword'){
             trackTitle = trackTitleK;
             trackMP3 = trackMP3K;
+            trackArtist = trackArtistK;
         }
         else{
             trackTitle = trackTitleG;
             trackMP3 = trackMP3G;
+            trackArtist = trackArtistG;
         }
         console.log(trackTitle);
         console.log(trackMP3)
@@ -69,16 +72,16 @@ class Game extends React.Component{
                 <h3 id = "score">Your current score: {score} out of {currentRound}</h3>
                 <p id = 'timer'>Timer:</p>
                 <ol id = "list">
-                    <li id = "l1">{trackTitle[0]}</li>
-                    <li id = "l2">{trackTitle[1]}</li>
-                    <li id = "l3">{trackTitle[2]}</li>
-                    <li id = "l4">{trackTitle[3]}</li>
-                    <li id = "l5">{trackTitle[4]}</li>
-                    <li id = "l6">{trackTitle[5]}</li>
-                    <li id = "l7">{trackTitle[6]}</li>
-                    <li id = "l8">{trackTitle[7]}</li>
-                    <li id = "l9">{trackTitle[8]}</li>
-                    <li id = "l10">{trackTitle[9]}</li>
+                    <li id = "l1">{trackTitle[0]} by {trackArtist[0]}</li>
+                    <li id = "l2">{trackTitle[1]} by {trackArtist[1]}</li>
+                    <li id = "l3">{trackTitle[2]} by {trackArtist[2]}</li>
+                    <li id = "l4">{trackTitle[3]} by {trackArtist[3]}</li>
+                    <li id = "l5">{trackTitle[4]} by {trackArtist[4]}</li>
+                    <li id = "l6">{trackTitle[5]} by {trackArtist[5]}</li>
+                    <li id = "l7">{trackTitle[6]} by {trackArtist[6]}</li>
+                    <li id = "l8">{trackTitle[7]} by {trackArtist[7]}</li>
+                    <li id = "l9">{trackTitle[8]} by {trackArtist[8]}</li>
+                    <li id = "l10">{trackTitle[9]} by {trackArtist[9]}</li>
                 </ol>
             </div>
             
@@ -160,18 +163,31 @@ function playCorrect(){
     correctAudio.play()    
 }
 
-//NEED TO FORMAT ANSWER
+
 function checkGuess(){
     const guess = String(document.getElementById('guess').value).toLowerCase();
     const answer = String(trackTitle[currentRound]).toLowerCase();
-    if(guess === answer){
+    const regexWord = /[\w]+/g;
+    const regexBrackets = /\(.+\)/g;
+    const answerNoBrackets = answer.replace(regexBrackets, "");
+    const answerArray = answerNoBrackets.match(regexWord)
+    const finalGuess = guess.trim();
+    const finalAnswer = answerArray.join(" ");
+    if(finalGuess === finalAnswer){
 
         playCorrect();
         return true;
     }
+    else if(answerArray.includes(finalGuess)){
+        document.getElementById('response').style.visibility = "visible"; 
+        document.getElementById('response').style.color = "white";
+        document.getElementById('response').innerHTML = "You're close!"
+    }
+    else{
     document.getElementById('response').style.visibility = "visible"; 
     document.getElementById('response').style.color = "white";
     document.getElementById('response').innerHTML = "Try again"
+    }
     return false;
 
 }

@@ -1,4 +1,5 @@
 let trackTitleK;
+let trackArtistK;
 let trackMP3K;
 const rounds = 10;
 let invalid = false;
@@ -6,6 +7,7 @@ let numRounds = rounds;
 function keywordDeezerParse(response){
     const dataArray = Array.from(response.data.data);
     trackTitleK = [];
+    trackArtistK = [];
     trackMP3K = [];
     if(dataArray.length === 0){
         alert("No songs found with that search query")
@@ -18,6 +20,7 @@ function keywordDeezerParse(response){
                 if(!trackTitleK.includes(dataArray[randomNum].title_short)){
                     trackTitleK.push(dataArray[randomNum].title_short)
                     trackMP3K.push(dataArray[randomNum].preview)
+                    trackArtistK.push(dataArray[randomNum].artist.name)
                     break;
                 }
             }
@@ -27,4 +30,4 @@ function keywordDeezerParse(response){
 }
 
 
-export {trackTitleK, trackMP3K, keywordDeezerParse, numRounds, invalid}
+export {trackTitleK, trackArtistK, trackMP3K, keywordDeezerParse, numRounds, invalid}

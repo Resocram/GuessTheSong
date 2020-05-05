@@ -26,8 +26,12 @@ class KeywordTransition extends React.Component{
 function extractSearch(){
     const searchLine = document.getElementById('keyword-search');
     keyWord = searchLine.value;
+    if(keyWord === ""){
+        alert("You can not search an empty keyword!")
+    }else{
     document.getElementsByClassName("container-keyword")[0].style.display = "none";
     ReactDOM.render(<KeywordFetch />,document.getElementById('root'))
+    }
 }
 
 export {KeywordTransition,keyWord};
