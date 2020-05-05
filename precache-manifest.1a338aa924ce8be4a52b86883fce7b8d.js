@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5293e9093292d1b07d4bb86607dce9aa",
+    "revision": "0c1703bca7e0ff4eed8853796221db52",
     "url": "/GuessTheSong/index.html"
   },
   {
-    "revision": "ea752b269feaf495636b",
+    "revision": "ad1c5b1e131873d5d036",
     "url": "/GuessTheSong/static/css/main.0f176723.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/GuessTheSong/static/js/2.bfc8628e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ea752b269feaf495636b",
-    "url": "/GuessTheSong/static/js/main.f2d787ee.chunk.js"
+    "revision": "ad1c5b1e131873d5d036",
+    "url": "/GuessTheSong/static/js/main.c9079b33.chunk.js"
   },
   {
     "revision": "b9c55273a23904469005",
@@ -40,12 +40,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/GuessTheSong/static/media/classical.dc581dd0.jpg"
   },
   {
+    "revision": "b569ccfd761d9ce668198d935a8c3e14",
+    "url": "/GuessTheSong/static/media/correct.b569ccfd.mp3"
+  },
+  {
     "revision": "ed025b7308c372279cb42e513d1ffcf5",
     "url": "/GuessTheSong/static/media/country.ed025b73.jpg"
   },
   {
     "revision": "89b94847f7ddbaebeb4bbf8b2479c276",
     "url": "/GuessTheSong/static/media/electronic.89b94847.jpg"
+  },
+  {
+    "revision": "bf81296e7e0606726efded29e955d944",
+    "url": "/GuessTheSong/static/media/lose.bf81296e.mp3"
   },
   {
     "revision": "0d41688418b2a48750528cbea4e7e3ff",
@@ -70,5 +78,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b28ddfe7f6d56f17100c665a38026f59",
     "url": "/GuessTheSong/static/media/rock.b28ddfe7.jpg"
+  },
+  {
+    "revision": "bb6c3b45b7ed212ed2262d72989556e0",
+    "url": "/GuessTheSong/static/media/win.bb6c3b45.mp3"
+  },
+  {
+    "revision": "0d63af349fa9f6be19217a7ac23e4aac",
+    "url": "/GuessTheSong/static/media/wrong.0d63af34.mp3"
   }
 ]);
