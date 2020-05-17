@@ -11,7 +11,7 @@ You can choose the songs based on a a keyword such as an artist or by album,
 or you can choose by genres.
 
 
-![Instruction1]https://i.imgur.com/ALQRzVv.png "Choose Keyword or Genre")
+![Instruction1](https://i.imgur.com/ALQRzVv.png "Choose Keyword or Genre")
 
 ### Keyword
 If you pick keyword, you will need to specify the keyword you would like to search for
