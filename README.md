@@ -6,6 +6,7 @@ Identify the Song is a music recognition game that is played in a web browser. T
 
 ## Starting the game
 Go to [this website](https://resocram.github.io/GuessTheSong/)
+
 Choose how you would like to filter the songs.
 You can choose the songs based on a a keyword such as an artist or by album,
 or you can choose by genres.
