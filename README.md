@@ -1,7 +1,7 @@
 # Guess The Song
 **Version 2.0.0**
 
-Identify the Song is a music recognition game that is played in a web browser. The program plays a 30s snippet of a song and player tries to guess the track title.
+Guess the Song is a music recognition game that is played in a web browser. The program plays a 30s snippet of a song and player tries to guess the track title.
 
 
 ## Starting the game
